@@ -1,20 +1,27 @@
 import {useState} from "react";
-import {Alert, View, Text, TextInput, Picker, TouchableOpacity} from "react-native";
+import {Alert, Modal, Picker, Text, TextInput, TouchableOpacity, View} from "react-native";
 import styles from "../../styles"
+import ACamera from "../Camera";
 
 export default function Form() {
   const [matricula, setMatricula] = useState(null);
   const [codigo, setCodigo] = useState(null);
-  const [situacao, setSituacao] = useState(null);
+  const [situacao, setSituacao] = useState("default");
+  const [open, setOpen] = useState(false);
 
   function validate() {
-    if (matricula != null && codigo != null && situacao != null) {
-      console.log(`Matrícula: ${matricula}`);
-      console.log(`Código: ${codigo}`);
-      console.log(`Situação: ${situacao}`);
+    if (matricula != null && codigo != null && situacao !== 'default') {
+      setOpen(true);
     } else {
       Alert.alert('É preciso preencher todos os campos do formulário!')
     }
+  }
+
+  function confirm(){
+    setOpen(false);
+    setMatricula(null);
+    setCodigo(null);
+    setSituacao("default");
   }
 
   return (
@@ -47,11 +54,22 @@ export default function Form() {
         </Picker>
         <TouchableOpacity
           style={styles.formButton}
-          onPress={()=>validate()}
+          onPress={validate}
         >
           <Text style={styles.formButtonText}>Confirmar Dados</Text>
         </TouchableOpacity>
       </View>
+      <Modal
+      transparent={true}
+      visible={open}
+      >
+        <ACamera
+        matricula={matricula}
+        codigo={codigo}
+        situacao={situacao}
+        confirm={confirm}
+        />
+      </Modal>
     </View>
   )
 }

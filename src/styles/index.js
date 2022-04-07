@@ -55,7 +55,80 @@ const styles = StyleSheet.create({
   formButtonText: {
     fontSize: 20,
     color: WHITE,
-  }
+  },
+  cameraContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  camera: {
+    width: '100%',
+    height: '100%',
+  },
+  cameraButtonContainer:{
+    flex: 1,
+    backgroundColor: "transparent",
+    flexDirection: "row"
+  },
+  cameraButtonFlip: {
+    position: "absolute",
+    bottom: 50,
+    left: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: BLUE,
+    margin: 20,
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+  },
+  cameraButtonTake: {
+    position: "absolute",
+    bottom: 50,
+    right: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: BLUE,
+    margin: 20,
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+  },
+  photoContainer: {
+    flex: 1,
+    margin: 10,
+  },
+  photoButtonContainer:{
+    flex: 1,
+    flexDirection: "row"
+  },
+  photoButtonClose:{
+    position: "absolute",
+    bottom: 50,
+    right: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: BLUE,
+    margin: 20,
+    width: 90,
+    height: 50,
+    borderRadius: 20,
+  },
+  photoButtonConfirm:{
+    position: "absolute",
+    bottom: 50,
+    right: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: BLUE,
+    margin: 20,
+    width: 90,
+    height: 50,
+    borderRadius: 20,
+  },
+  photo:{
+    width: "100%",
+    height: "80%",
+  },
 })
 
 export default styles;
